@@ -45,7 +45,6 @@ ACCESS_TOKEN_EXPIRE_MINUTES=60
 
 ------------------------------------------------------------------------
 
-```
 ## Quick start to Build Application
 
 1. Start containers
@@ -63,6 +62,7 @@ docker compose exec api python scripts/seed.py
 docker compose run --rm tests
 docker compose run --rm tests pytest tests/test_admin_users.py
 docker compose run --rm tests pytest --cov=app --cov-report=term-missing
+```
 
 ------------------------------------------------------------------------
 
