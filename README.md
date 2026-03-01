@@ -45,7 +45,6 @@ ACCESS_TOKEN_EXPIRE_MINUTES=60
 
 ------------------------------------------------------------------------
 
-```md
 ## Quick start to Build Application
 
 1. Start containers
@@ -56,13 +55,14 @@ ACCESS_TOKEN_EXPIRE_MINUTES=60
 6. Run specific test
 7. Test Coverage
 
-```bash
+```
 docker compose up --build -d
 docker compose exec api alembic upgrade head
 docker compose exec api python scripts/seed.py
 docker compose run --rm tests
 docker compose run --rm tests pytest tests/test_admin_users.py
 docker compose run --rm tests pytest --cov=app --cov-report=term-missing
+```
 
 ------------------------------------------------------------------------
 
