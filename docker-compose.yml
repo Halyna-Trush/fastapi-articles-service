@@ -1,0 +1,37 @@
+services:
+  db:
+    image: postgres:16
+    container_name: fas_articles_db
+    environment:
+      POSTGRES_DB: articles_db
+      POSTGRES_USER: articles_user
+      POSTGRES_PASSWORD: articles_pass
+    ports:
+      - "5432:5432"
+    volumes:
+      - db_data:/var/lib/postgresql/data
+
+  api:
+    build: .
+    container_name: fas_articles_api
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    environment:
+      DATABASE_URL: postgresql://articles_user:articles_pass@db:5432/articles_db
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8000
+
+  tests:
+    build: .
+    container_name: fas_articles_tests
+    depends_on:
+      - db
+    working_dir: /app
+    environment:
+      PYTHONPATH: /app
+      DATABASE_URL: postgresql://articles_user:articles_pass@db:5432/articles_db
+    command: pytest -q --disable-warnings --maxfail=1
+
+volumes:
+  db_data:
