@@ -9,7 +9,7 @@ containerized deployment.
 
 ------------------------------------------------------------------------
 
-# 🚀 Features
+## Features
 
 -   JWT Authentication
 -   Role-based permissions (admin / editor / user)
@@ -23,7 +23,7 @@ containerized deployment.
 
 ------------------------------------------------------------------------
 
-# 🧰 Tech Stack
+## Tech Stack
 
 -   FastAPI
 -   SQLAlchemy
@@ -35,7 +35,7 @@ containerized deployment.
 
 ------------------------------------------------------------------------
 
-# ⚙️ Environment Setup
+## Environment Setup
 
 Create `.env` file:
 
@@ -45,13 +45,13 @@ ACCESS_TOKEN_EXPIRE_MINUTES=60
 
 ------------------------------------------------------------------------
 
-# 🐳 Build Application
+## Build Application
 
 docker compose build
 
 ------------------------------------------------------------------------
 
-# ▶️ Run Application
+## Run Application
 
 docker compose up
 
@@ -61,7 +61,7 @@ http://localhost:8000/docs
 
 ------------------------------------------------------------------------
 
-# ❤️ Liveness Endpoint
+## Liveness Endpoint
 
 GET /health
 
@@ -71,7 +71,7 @@ Example response:
 
 ------------------------------------------------------------------------
 
-# 🗄 Initialize Database (Load Initial Data)
+## Initialize Database (Load Initial Data)
 
 docker compose exec api python scripts/seed.py
 
@@ -83,7 +83,7 @@ Created roles:
 
 ------------------------------------------------------------------------
 
-# 🧪 Run Tests
+## Run Tests
 
 Run all tests:
 
@@ -95,7 +95,7 @@ docker compose run --rm tests pytest tests/test_admin_users.py
 
 ------------------------------------------------------------------------
 
-# 📊 Test Coverage
+## Test Coverage
 
 docker compose run --rm tests pytest --cov=app --cov-report=term-missing
 
@@ -103,18 +103,18 @@ Coverage requirement ≥ 20% satisfied.
 
 ------------------------------------------------------------------------
 
-# 📁 Project Structure
+## Project Structure
 
-## app/
+### app/
 
-### api/
+#### api/
 
 -   admin_users.py --- Admin user management endpoints
 -   articles.py --- Articles CRUD operations
 -   auth.py --- Login and token issuing
 -   users.py --- Current user endpoints
 
-### core/
+#### core/
 
 -   auth.py --- Authentication helpers
 -   jwt.py --- JWT logic
@@ -122,7 +122,7 @@ Coverage requirement ≥ 20% satisfied.
 -   roles.py --- Role definitions
 -   security.py --- Password hashing
 
-### db/
+#### db/
 
 -   base.py --- SQLAlchemy Base
 -   deps.py --- DB dependency injection
@@ -131,24 +131,24 @@ Coverage requirement ≥ 20% satisfied.
 -   users.py --- User queries
 -   init_db.py --- DB initialization
 
-### models/
+#### models/
 
 ORM models: - user.py - article.py
 
-### schemas/
+#### schemas/
 
 Pydantic schemas.
 
 ------------------------------------------------------------------------
 
-## scripts/
+### scripts/
 
 -   create_db.py --- DB creation helper
 -   seed.py --- Initial data loader
 
 ------------------------------------------------------------------------
 
-## tests/
+### tests/
 
 -   test_auth.py --- Authentication tests
 -   test_articles.py --- Articles tests
@@ -157,7 +157,7 @@ Pydantic schemas.
 
 ------------------------------------------------------------------------
 
-## Root Files
+### Root Files
 
 -   Dockerfile --- API container
 -   docker-compose.yml --- Environment orchestration
@@ -167,7 +167,7 @@ Pydantic schemas.
 
 ------------------------------------------------------------------------
 
-# 🐳 Docker Setup
+## Docker Setup
 
 The project runs fully inside Docker:
 
@@ -177,7 +177,7 @@ Only Docker Engine and internet connection are required.
 
 ------------------------------------------------------------------------
 
-# ✅ Implemented Requirements
+## Implemented Requirements
 
 -   REST API
 -   Authentication & authorization
@@ -191,7 +191,7 @@ Only Docker Engine and internet connection are required.
 
 ------------------------------------------------------------------------
 
-# 🎯 Result
+## Result
 
 A fully containerized FastAPI backend service demonstrating real-world
 backend architecture suitable for production-style development and
