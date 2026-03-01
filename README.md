@@ -45,17 +45,28 @@ ACCESS_TOKEN_EXPIRE_MINUTES=60
 
 ------------------------------------------------------------------------
 
-## Build Application
+```md
+## Quick start to Build Application
 
-docker compose build
+1. Start containers
+2. Apply migrations
+3. Seed database
+4. Open docs
+5. Run tests
+6. Run specific test
+7. Test Coverage
+
+```bash
+docker compose up --build -d
+docker compose exec api alembic upgrade head
+docker compose exec api python scripts/seed.py
+docker compose run --rm tests
+docker compose run --rm tests pytest tests/test_admin_users.py
+docker compose run --rm tests pytest --cov=app --cov-report=term-missing
 
 ------------------------------------------------------------------------
 
-## Run Application
-
-docker compose up
-
-API available at:
+## API available at:
 
 http://localhost:8000/docs
 
@@ -73,33 +84,11 @@ Example response:
 
 ## Initialize Database (Load Initial Data)
 
-docker compose exec api python scripts/seed.py
-
 Created roles:
 
 -   admin
 -   editor
 -   user
-
-------------------------------------------------------------------------
-
-## Run Tests
-
-Run all tests:
-
-docker compose run --rm tests
-
-Run specific test:
-
-docker compose run --rm tests pytest tests/test_admin_users.py
-
-------------------------------------------------------------------------
-
-## Test Coverage
-
-docker compose run --rm tests pytest --cov=app --cov-report=term-missing
-
-Coverage requirement ≥ 20% satisfied.
 
 ------------------------------------------------------------------------
 
