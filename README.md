@@ -35,14 +35,6 @@ containerized deployment.
 
 ------------------------------------------------------------------------
 
-## Environment Setup
-
-Create `.env` file:
-
-DATABASE_URL=postgresql://articles_user:articles_pass@localhost:5432/articles_db
-
-------------------------------------------------------------------------
-
 ## Quick start to Build Application
 
 1. Start containers
