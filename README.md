@@ -39,9 +39,7 @@ containerized deployment.
 
 Create `.env` file:
 
-DATABASE_URL=postgresql://articles_user:articles_pass@db:5432/articles_db\
-SECRET_KEY=your_secret_key\
-ACCESS_TOKEN_EXPIRE_MINUTES=60
+DATABASE_URL=postgresql://articles_user:articles_pass@localhost:5432/articles_db
 
 ------------------------------------------------------------------------
 
@@ -66,13 +64,13 @@ docker compose run --rm tests pytest --cov=app --cov-report=term-missing
 
 ------------------------------------------------------------------------
 
-## API available at:
+### API available at:
 
 http://localhost:8000/docs
 
 ------------------------------------------------------------------------
 
-## Liveness Endpoint
+### Liveness Endpoint
 
 GET /health
 
@@ -82,7 +80,7 @@ Example response:
 
 ------------------------------------------------------------------------
 
-## Initialize Database (Load Initial Data)
+### Initialize Database (Load Initial Data)
 
 Created roles:
 
@@ -92,7 +90,7 @@ Created roles:
 
 ------------------------------------------------------------------------
 
-## Project Structure
+### Project Structure
 
 ### app/
 
