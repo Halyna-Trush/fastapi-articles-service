@@ -39,7 +39,10 @@ containerized deployment.
 The application is deployed on AWS EC2 using Docker Compose.  
 The service is publicly accessible via:
 
-http://13.60.99.222/docs
+http://13.60.99.222:8000/docs
+
+Health check:
+http://13.60.99.222:8000/health
 
 ## Quick Start (Docker)
 Run the entire application using Docker.
