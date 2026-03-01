@@ -45,6 +45,7 @@ ACCESS_TOKEN_EXPIRE_MINUTES=60
 
 ------------------------------------------------------------------------
 
+```md
 ## Quick start to Build Application
 
 1. Start containers
@@ -55,14 +56,13 @@ ACCESS_TOKEN_EXPIRE_MINUTES=60
 6. Run specific test
 7. Test Coverage
 
-```
+```bash
 docker compose up --build -d
 docker compose exec api alembic upgrade head
 docker compose exec api python scripts/seed.py
 docker compose run --rm tests
 docker compose run --rm tests pytest tests/test_admin_users.py
 docker compose run --rm tests pytest --cov=app --cov-report=term-missing
-```
 
 ------------------------------------------------------------------------
 
@@ -122,18 +122,34 @@ Created roles:
 
 #### models/
 
-ORM models: - user.py - article.py
+SQLAlchemy ORM models describing database structure.
+
+- user.py — User database model (id, email, password hash, role)
+- article.py — Article model linked to owner (User relationship)
+
+Models define tables, relationships and persistence layer logic.
+
+------------------------------------------------------------------------
 
 #### schemas/
 
-Pydantic schemas.
+Pydantic schemas used for request validation and API responses.
+
+- user.py — UserCreate, UserRead, UserUpdate schemas
+- article.py — ArticleCreate, ArticleRead schemas
+
+Schemas separate API contracts from database models.
 
 ------------------------------------------------------------------------
 
 ### scripts/
 
--   create_db.py --- DB creation helper
--   seed.py --- Initial data loader
+Utility scripts used for database initialization.
+
+- create_db.py — helper script to create database schema manually
+- seed.py — populates database with initial users and sample articles
+
+These scripts allow quick environment bootstrap after deployment.
 
 ------------------------------------------------------------------------
 
@@ -177,6 +193,11 @@ Only Docker Engine and internet connection are required.
 -   Coverage ≥ 20%
 -   Liveness endpoint
 -   README documentation
+
+------------------------------------------------------------------------
+
+## Possible Improvements
+Optimize database queries using eager loading (joinedload / selectinload) to prevent the N+1 query problem when loading related entities (e.g., articles with owners). This was identified as a performance improvement but intentionally left for future enhancement.
 
 ------------------------------------------------------------------------
 
