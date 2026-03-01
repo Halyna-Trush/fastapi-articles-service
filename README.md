@@ -54,33 +54,7 @@ docker compose run --rm tests pytest tests/test_admin_users.py
 docker compose run --rm tests pytest --cov=app --cov-report=term-missing
 ```
 
-------------------------------------------------------------------------
-
-### API available at:
-
-http://localhost:8000/docs
-
-------------------------------------------------------------------------
-
-### Liveness Endpoint
-
-GET /health
-
-Example response:
-
-{ "status": "ok", "db": "ok" }
-
-------------------------------------------------------------------------
-
-### Initialize Database (Load Initial Data)
-
-Created roles:
-
--   admin
--   editor
--   user
-
-------------------------------------------------------------------------
+---------------------------------------------
 
 ### Project Structure
 
