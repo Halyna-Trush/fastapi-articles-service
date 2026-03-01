@@ -34,8 +34,15 @@ containerized deployment.
 -   Docker & Docker Compose
 
 ------------------------------------------------------------------------
+## Deployment
 
-## Quick start to Build Application
+The application is deployed on AWS EC2 using Docker Compose.  
+The service is publicly accessible via:
+
+http://13.60.99.222/docs
+
+## Quick Start (Docker)
+Run the entire application using Docker.
 
 1. Start containers
 2. Apply migrations
